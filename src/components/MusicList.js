@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import {ThemeContext} from '../contexts/ThemeContext';
+import { MusicContext } from '../contexts/MusicContext';
 
 const MusicList = () => {
   const {isLightTheme, light, dark} = useContext(ThemeContext);
+  const {songs} = useContext(MusicContext);
   const theme = isLightTheme ? light : dark;
   return (
     <div
@@ -10,9 +12,7 @@ const MusicList = () => {
       className="music-list"
     >
       <ul>
-        <li style={{ background: theme.ui }}>Perfect</li>
-        <li style={{ background: theme.ui }}>Afire Love</li>
-        <li style={{ background: theme.ui }}>Love is not a fight</li>
+        {songs.map(song => <li key={song.id} style={{ background: theme.ui }}>{song.title}</li>)}
       </ul>
     </div>
   );

@@ -4,6 +4,7 @@ import MusicList from './components/MusicList';
 import ThemeContextProvider from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import AuthContextProvider from './contexts/AuthContext';
+import MusicContextProvider from './contexts/MusicContext';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <MusicList />
+          <MusicContextProvider>
+            <MusicList />
+          </MusicContextProvider>
           <ThemeToggle />
         </AuthContextProvider>
       </ThemeContextProvider>
