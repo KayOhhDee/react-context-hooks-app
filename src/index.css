@@ -45,12 +45,20 @@ nav ul li {
   margin: 10px auto;
   border-radius: 10px;
   text-align: left;
+  position: relative;
 }
 
 .music-list li span {
   display: block;
   font-size: 12px;
   font-style: italic;
+}
+
+.music-list li i {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  cursor: pointer;
 }
 
 .switch {
@@ -113,4 +121,22 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+input[type="text"] {
+  display: block;
+  width: 94%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: transparent;
+}
+
+input[type="submit"] {
+  padding: 5px 15px;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 15px;
+  margin-top: 5px;
+  cursor: pointer;
 }
