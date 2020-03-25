@@ -12,7 +12,7 @@ const MusicList = () => {
       className="music-list"
     >
       <ul>
-        {songs.map(song => <li key={song.id} style={{ background: theme.ui }}>{song.title}</li>)}
+        {songs.map(song => <li key={song.id} style={{ background: theme.ui }}>{song.title}<span>Song by:&nbsp;{song.artist}</span></li>)}
       </ul>
     </div>
   );

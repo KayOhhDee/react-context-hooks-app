@@ -1,22 +1,17 @@
 import React, { useContext } from 'react';
 import {ThemeContext} from '../contexts/ThemeContext';
-import { AuthContext } from '../contexts/AuthContext';
+import ThemeToggle from "./ThemeToggle";
+import { MusicContext } from '../contexts/MusicContext';
 
 const Navbar = () => {
   const {isLightTheme, light, dark} = useContext(ThemeContext);
-  const {isAuthenticated, toggleAuth} = useContext(AuthContext);
+  const {songs} = useContext(MusicContext)
   const theme = isLightTheme ? light : dark;
   return (
     <nav style={{ background: theme.ui, color: theme.text }}>
-      <h1>Context &amp; Hooks app</h1>
-      <div onClick={toggleAuth}>
-        {isAuthenticated ? 'Logged In' : 'Logged Out'}
-      </div>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+      <ThemeToggle />
+      <h1>Songs list App</h1>
+      <div>{`You have ${songs.length} in your song list`}</div>
     </nav>
   );
 }
