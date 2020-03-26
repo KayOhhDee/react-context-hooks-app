@@ -3,7 +3,7 @@ import { MusicContext } from "../contexts/MusicContext";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 const MusicForm = () => {
-  const { addSong } = useContext(MusicContext);
+  const { dispatch } = useContext(MusicContext);
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
@@ -12,7 +12,7 @@ const MusicForm = () => {
 
   const onHandleSubmit = e => {
     e.preventDefault();
-    addSong(title, artist);
+    dispatch({type: 'ADD_SONG', song: {title, artist}})
     setTitle("");
     setArtist("");
   };

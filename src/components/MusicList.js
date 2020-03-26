@@ -5,7 +5,7 @@ import MusicForm from "./MusicForm";
 
 const MusicList = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const { songs, removeSong } = useContext(MusicContext);
+  const { songs, dispatch } = useContext(MusicContext);
   const theme = isLightTheme ? light : dark;
   return (
     <div
@@ -18,7 +18,7 @@ const MusicList = () => {
           <li key={song.id} style={{ background: theme.ui }}>
             {song.title}
             <span>Song by:&nbsp;{song.artist}</span>
-            <i onClick={() => removeSong(song.id)} className="fa fa-trash-o" aria-hidden="true"></i>
+            <i onClick={() => dispatch({type: 'REMOVE_SONG', id: song.id})} className="fa fa-trash-o" aria-hidden="true"></i>
           </li>
         ))}
       </ul> : <div>You have no songs available.</div>
