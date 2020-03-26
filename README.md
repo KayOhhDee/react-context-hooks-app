@@ -1,4 +1,4 @@
-# mPharma
+# React Context & Hooks app
 
 A simple songs list app built with react utilizing the context api and hooks concept.
 
